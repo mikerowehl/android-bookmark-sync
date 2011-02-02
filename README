@@ -1,0 +1,30 @@
+Android Bookmark Sync
+Mike Rowehl (mikerowehl@gmail.com)
+
+Very simple Android app for pulling down a JSON file via HTTP, parse it, and
+merge any URLs that don't exist already into the Browser bookmarks.  Once
+they're merged in you can find them in the bookmarks section of the default
+browser just like you should be able to.
+
+The format expected for the JSON:
+
+- top level item 'bookmarks' containing an array
+- each array item has a 'url' and optionally a title
+
+Example JSON content:
+
+{"bookmarks":[{"url":"http:\/\/rowehl.com\/","title":"Mike Rocks!"},{"url":"http:\/\/rowehl.com\/img2.jpg"},{"url":"http:\/\/chomp.com","title":"Chomp"}]}
+
+PHP to generate that JSON in case you want to play:
+
+--------
+$marks = array(
+    array('url' => 'http://rowehl.com/', 'title' => 'Mike Rocks!'), 
+    array('url' => 'http://rowehl.com/img2.jpg'),
+    array('url' => 'http://chomp.com', 'title' => 'Chomp')
+    );                                                                              
+echo json_encode(array('bookmarks' => $marks));
+--------
+
+In the app itself you just need to put in the URL and hit the sync button.
+It's just that easy!

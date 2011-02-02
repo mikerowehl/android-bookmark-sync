@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="json_url_label">JSON Url:</string>
+    <string name="app_name">Bookmark Sync</string>
+</resources>
